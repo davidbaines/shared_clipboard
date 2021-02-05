@@ -9,8 +9,8 @@ def openClipboard():
 def closeClipboard():
   try:
     win32clipboard.CloseClipboard()
-  except Exception as e:
-    print(e)
+  except Exception, e:
+    print e
     pass
 
 def getClipboardData():

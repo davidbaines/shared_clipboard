@@ -8,7 +8,7 @@ def getClipboardData():
     try:
       scrap = GetCurrentScrap()
       return scrap.GetScrapFlavorData(flavorType='TEXT')
-    except MacOS.Error as e:
+    except MacOS.Error, e:
       if e[0] != -102:
             # -102 == noTypeErr
             raise

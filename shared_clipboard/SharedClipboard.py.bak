@@ -19,7 +19,7 @@ def monitorClipboard(clipboard_file):
     try:
       openClipboard()
     except:
-      print('OpenClipboard() failed')
+      print 'OpenClipboard() failed'
       continue
 
     try:
@@ -27,17 +27,17 @@ def monitorClipboard(clipboard_file):
         data = getClipboardData()
         if data and data != prev_data:
             open(clipboard_file, 'w').write(data)
-            print('writing %s to file' % data)
+            print 'writing %s to file' % data
             prev_data = data
         else:
           data = open(clipboard_file, 'r').read()
           if data != prev_data:
             setClipboardData(data)
-            print('putting %s in clipboard' % data)
+            print 'putting %s in clipboard' % data
             prev_data = data
 
-      except Exception as e:
-        print(e)
+      except Exception, e:
+        print e
         pass
     finally:
       closeClipboard()
@@ -53,7 +53,7 @@ shared clipboard instances on all machines.
 """
 
   if len(sys.argv) != 2 or not os.path.isfile(sys.argv[1]):
-    print(usage)
+    print usage
     sys.exit(1)
 
   clipboard_file = sys.argv[1]
